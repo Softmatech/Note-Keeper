@@ -1,26 +1,28 @@
 import 'package:flutter/material.dart';
+import 'package:note_keeper/models/note.dart';
 
 class NoteDetail extends StatefulWidget {
 
-  String appBarTitle;
-
-  NoteDetail(this.appBarTitle);
+  final String appBarTitle;
+  final Note note;
+  NoteDetail(this.note,this.appBarTitle);
 
   @override
   State<StatefulWidget> createState() {
-    // TODO: implement createState
-    return NoteDetailState(this.appBarTitle);
+    return NoteDetailState(this.note,this.appBarTitle);
   }
 }
 
 class NoteDetailState extends State<NoteDetail>{
 
     String appBarTitle;
+    Note note;
+
     static var _priorities = ['High', 'Low'];
     TextEditingController titleController = TextEditingController();
     TextEditingController descriptionController = TextEditingController();
 
-    NoteDetailState(this.appBarTitle);
+    NoteDetailState(this.note,this.appBarTitle);
 
   @override
   Widget build(BuildContext context) {

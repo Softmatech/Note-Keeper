@@ -84,5 +84,18 @@ Future<int> getCount() async {
       return result;
 }
 
+Future<List<Note>> getNoteList() async {
+      var noteMapList = await getNoteMapList();// Get 'Map List' from databse
+  int count = noteMapList.lenght;
+
+  List<Note> noteList = List<Note>();
+  // For llop to create a 'Note List' from a 'Map List'
+
+  for(int i = 0; i < count; i++) {
+      noteList.add(Note.fromMapObject(noteMapList[i]));
+  }
+  return noteList;
+}
+
 
 }
